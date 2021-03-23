@@ -26,10 +26,25 @@ Book.prototype.printTitle = function () {
 };
 
 const lol = new Book('dary', 'me', 5, 'not read yet');
+const lol2 = new Book('Moby Dick', 'me', 5, 'not read yet');
+const lol3 = new Book('Harry Potter', 'J.R. Tolkien', 5, 'not read yet');
+const lol4 = new Book('Atomic Habits', 'James Clear', 123, 'not read yet');
+const lol5 = new Book('How to Train Cats', 'my cousin', 5, 'read');
 console.log('lol.title = ' + lol.title);
 console.log(lol.info());
 
 let library = [];
 function addBookToLibrary(book) {
   library.push(book);
+}
+addBookToLibrary(lol);
+addBookToLibrary(lol2);
+addBookToLibrary(lol3);
+addBookToLibrary(lol4);
+addBookToLibrary(lol5);
+
+function displayAllBooks() {
+  library.forEach((aBook) => {
+    console.log(aBook.info());
+  });
 }
