@@ -1,6 +1,6 @@
 :root {
   --main-color: brown;
-  --main-bkcolor-light: white;
+  --main-bkcolor-light: #f9f6f2;
   --main-bkcolor-dark: black;
 }
 
@@ -12,4 +12,143 @@
 
 body {
   background: var(--main-bkcolor-light);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  background-color: grey;
+  height: 4rem;
+
+  box-shadow: 0 1px 4px black;
+}
+
+h1 {
+  display: flex;
+  align-self: center;
+}
+
+h2 {
+  margin-top: 0.75rem;
+
+  /* margin: 0.75rem 20px 0 20px; */
+  margin: 0.75rem auto 0 auto;
+  /* background-color: grey; */
+
+  text-align: center;
+  height: 3.5rem;
+  line-height: 1.5rem;
+  overflow-wrap: break-word;
+
+  width: 100%;
+  word-wrap: break-word;
+}
+
+#add-book {
+  width: 10rem;
+  height: 2rem;
+  border-radius: 1000px;
+}
+
+#add-book-container {
+  display: flex;
+  justify-content: center;
+  /* background-color: green; */
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+#books-container {
+  /* background-color: blue; */
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 30px 30px 30px;
+
+  justify-content: center;
+}
+
+.book {
+  background: linear-gradient(120deg, hsl(180, 100%, 28%), hsl(146, 47%, 56%));
+  background: linear-gradient(120deg, hsl(146, 47%, 56%), hsl(180, 100%, 28%));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 3px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px black;
+
+  min-width: 250px;
+  width: 250px;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 5rem;
+  height: 1.5rem;
+  background: orange;
+  border-radius: 8px;
+
+  margin: 2px;
+  box-shadow: 1px 1px 2px black;
+}
+
+.btn-x {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1rem;
+  height: 1rem;
+  /* background: orange; */
+  /* padding: 0.1rem 0.25rem 0.25rem 0.25rem; */
+  padding: 0.55rem 0.55rem 0.5rem 0.5rem;
+  /* margin: 3px; */
+  /* border-radius: 8px; */
+
+  /* margin: 3px; */
+
+  position: absolute;
+  font-weight: 900;
+  font-family: sans-serif;
+}
+
+.checkbox-label {
+  margin-bottom: 0.75em;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.line {
+  width: 28px;
+  height: 6px;
+  background-color: var(--main-bkcolor-dark);
+  margin: 3px 2px;
+}
+
+.x-container {
+  justify-content: flex-end;
+  display: flex;
+  /* background-color: red; */
+  width: 100%;
+
+  position: relative;
 }
