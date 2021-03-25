@@ -93,26 +93,35 @@ function displayAllBooks() {
     pages.appendChild(pagesText);
     newBook.appendChild(pages);
 
-    // label and checkbox
-    let checkboxLabel = document.createElement('label');
-    checkboxLabel.classList.add('checkbox-label');
-    checkboxLabel.setAttribute('for', 'available');
-    let checkboxSpan = document.createElement('span');
-    let checkboxSpanText = document.createTextNode('Mark as read ');
-    checkboxSpan.appendChild(checkboxSpanText);
-    let checkboxInput = document.createElement('input');
-    checkboxInput.classList.add('read');
-    checkboxInput.setAttribute('name', 'name');
-    checkboxInput.setAttribute('type', 'checkbox');
-    checkboxInput.setAttribute('value', 'read');
-    checkboxLabel.appendChild(checkboxSpan);
-    checkboxLabel.appendChild(checkboxInput);
+    // read status
+    let readStatusContainer = document.createElement('div');
+    readStatusContainer.classList.add('read-status-container');
+    let readTextContainer = document.createElement('div');
+    let readText = document.createTextNode('Has been read');
+    readTextContainer.appendChild(readText);
+    readStatusContainer.appendChild(readTextContainer);
+    let toggleBtnContainer = document.createElement('div');
+    toggleBtnContainer.classList.add('toggle-btn-container');
+    let toggleBtnBackground = document.createElement('div');
+    toggleBtnBackground.classList.add('toggle-btn-background');
+    let toggleBtnMain = document.createElement('div');
+    toggleBtnMain.classList.add('toggle-btn-main');
 
-    newBook.appendChild(checkboxLabel);
+    if (aBook.read) {
+      toggleBtnContainer.classList.add('toggle-yes');
+    }
 
+    toggleBtnBackground.appendChild(toggleBtnMain);
+    toggleBtnContainer.appendChild(toggleBtnBackground);
+    readStatusContainer.appendChild(toggleBtnContainer);
+    newBook.appendChild(readStatusContainer);
+
+    // append newBook
     booksContainer.appendChild(newBook);
   });
 }
+
+displayAllBooks();
 
 // Write a function that loops through the array
 // and displays each book on the page. You can display them in

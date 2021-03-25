@@ -145,6 +145,42 @@ h2 {
   margin: 3px 2px;
 }
 
+.read-status-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* background-color: blue; */
+}
+
+.toggle-btn-container {
+  height: 16px;
+  width: 25px;
+  border-radius: 50px;
+
+  background-color: hsl(120, 0%, 30%);
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+
+  /* change this to make it look like a toggle button */
+  justify-content: flex-start;
+  /* (changed in app.js by adding on the class of .toggle-yes which overrides this) */
+}
+
+.toggle-btn-main {
+  height: 14px;
+  width: 14px;
+  border-radius: 50px;
+  background-color: white;
+  box-shadow: 0 0 2px black;
+
+  margin: 0px;
+}
+
+.toggle-yes {
+  justify-content: flex-end;
+}
+
 .x-container {
   justify-content: flex-end;
   display: flex;
