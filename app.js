@@ -53,9 +53,64 @@ addBookToLibrary(lol4);
 addBookToLibrary(lol5);
 addBookToLibrary(lol6);
 
+let booksContainer = document.getElementById('books-container');
+
 function displayAllBooks() {
   library.forEach((aBook) => {
     console.log(aBook.info());
+
+    let newBook = document.createElement('div');
+    newBook.classList.add('book');
+
+    // X button and container
+    let xBtnContainer = document.createElement('div');
+    xBtnContainer.classList.add('x-container');
+    let xBtn = document.createElement('button');
+    xBtn.classList.add('btn-x', 'clickable');
+    let xText = document.createTextNode('X');
+    xBtn.appendChild(xText);
+    xBtnContainer.appendChild(xBtn);
+    newBook.appendChild(xBtnContainer);
+
+    // Book title
+    let bookTitle = document.createElement('h2');
+    let bookTitleText = document.createTextNode(aBook.title);
+    bookTitle.classList.add('book-title');
+    bookTitle.appendChild(bookTitleText);
+    newBook.appendChild(bookTitle);
+
+    // Author
+    let author = document.createElement('p');
+    let authorText = document.createTextNode(aBook.author);
+    author.classList.add('author');
+    author.appendChild(authorText);
+    newBook.appendChild(author);
+
+    // pages
+    let pages = document.createElement('p');
+    let pagesText = document.createTextNode(`${aBook.pages} pages`);
+    pages.classList.add('pages');
+    pages.appendChild(pagesText);
+    newBook.appendChild(pages);
+
+    // label and checkbox
+    let checkboxLabel = document.createElement('label');
+    checkboxLabel.classList.add('checkbox-label');
+    checkboxLabel.setAttribute('for', 'available');
+    let checkboxSpan = document.createElement('span');
+    let checkboxSpanText = document.createTextNode('Mark as read ');
+    checkboxSpan.appendChild(checkboxSpanText);
+    let checkboxInput = document.createElement('input');
+    checkboxInput.classList.add('read');
+    checkboxInput.setAttribute('name', 'name');
+    checkboxInput.setAttribute('type', 'checkbox');
+    checkboxInput.setAttribute('value', 'read');
+    checkboxLabel.appendChild(checkboxSpan);
+    checkboxLabel.appendChild(checkboxInput);
+
+    newBook.appendChild(checkboxLabel);
+
+    booksContainer.appendChild(newBook);
   });
 }
 
