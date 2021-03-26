@@ -12,6 +12,38 @@
 
 body {
   background: var(--main-bkcolor-light);
+  position: relative;
+}
+
+form {
+  position: absolute;
+  top: 80px;
+  background-color: hsla(120, 0%, 90%, 1);
+  width: 100%;
+  padding: 10px;
+
+  /* hidden to start */
+  /* display: none; */
+}
+.form-row button {
+  display: flex;
+  align-self: center;
+}
+.form-row label {
+  color: grey;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.form-row label {
+  /* margin-top: 0.5rem; */
+  font-size: smaller;
+}
+#form-title {
+  text-align: center;
+  margin-top: 0.75rem;
 }
 
 header {
@@ -131,11 +163,15 @@ h2 {
 }
 
 .checkbox-label {
-  margin-bottom: 0.75em;
+  /* margin-bottom: 0.75em; */
 }
 
 .clickable {
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 .line {

@@ -55,6 +55,38 @@
         </div>
       </div>
     </main>
+    <form id="add-book-form" class="hidden">
+      <div class="x-container">
+        <button class="btn-x clickable">X</button>
+      </div>
+      <div id="form-title">Add Book</div>
+      <div class="text-input-container form-row">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" />
+      </div>
+      <div class="text-input-container form-row">
+        <label for="author">Author</label>
+        <input id="author" name="author" type="text" />
+      </div>
+      <div class="text-input-container form-row">
+        <label for="pages">Number Of Pages</label>
+        <input id="pages" name="pages" type="text" />
+      </div>
+      <div class="form-row">
+        <label class="checkbox-label" for="read-already"
+          >Read Already
+          <input
+            id="read-already"
+            name="read-already"
+            type="checkbox"
+            value="read"
+          />
+        </label>
+      </div>
+      <div class="form-row">
+        <button class="btn">Add Book</button>
+      </div>
+    </form>
 
     <script src="app.js"></script>
   </body>

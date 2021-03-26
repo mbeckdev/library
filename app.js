@@ -121,7 +121,19 @@ function displayAllBooks() {
   });
 }
 
+function openAddBookForm() {
+  // todo: take off .hidden class of overall form
+  document.getElementById('add-book-form').classList.remove('hidden');
+}
+
+function addEventListeners() {
+  document
+    .getElementById('add-book')
+    .addEventListener('click', openAddBookForm);
+}
+
 displayAllBooks();
+addEventListeners();
 
 // Write a function that loops through the array
 // and displays each book on the page. You can display them in
