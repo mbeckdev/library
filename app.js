@@ -56,6 +56,8 @@ addBookToLibrary(lol6);
 let booksContainer = document.getElementById('books-container');
 
 function displayAllBooks() {
+  removeAllBooks();
+
   library.forEach((aBook) => {
     console.log(aBook.info());
 
@@ -126,10 +128,32 @@ function openAddBookForm() {
   document.getElementById('add-book-form').classList.remove('hidden');
 }
 
+function closeBookForm() {
+  document.getElementById('add-book-form').classList.add('hidden');
+
+  let newTitle = document.getElementById('title').value;
+
+  let newAuthor = document.getElementById('author').value;
+  let newPages = document.getElementById('pages').value;
+  let newRead = document.getElementById('read-already').checked;
+
+  let aNewBook = new Book(newTitle, newAuthor, newPages, newRead);
+  addBookToLibrary(aNewBook);
+
+  displayAllBooks();
+}
+
+function removeAllBooks() {
+  let books = document.querySelectorAll('.book');
+  books.forEach((book) => booksContainer.removeChild(book));
+}
+
 function addEventListeners() {
   document
     .getElementById('add-book')
     .addEventListener('click', openAddBookForm);
+
+  document.getElementById('submit').addEventListener('click', closeBookForm);
 }
 
 displayAllBooks();
