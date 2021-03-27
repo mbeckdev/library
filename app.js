@@ -128,7 +128,7 @@ function openAddBookForm() {
   document.getElementById('add-book-form').classList.remove('hidden');
 }
 
-function closeBookForm() {
+function closeBookForm(e) {
   document.getElementById('add-book-form').classList.add('hidden');
 
   let newTitle = document.getElementById('title').value;
@@ -141,6 +141,7 @@ function closeBookForm() {
   addBookToLibrary(aNewBook);
 
   displayAllBooks();
+  e.preventDefault();
 }
 
 function removeAllBooks() {
@@ -153,8 +154,13 @@ function addEventListeners() {
     .getElementById('add-book')
     .addEventListener('click', openAddBookForm);
 
-  document.getElementById('submit').addEventListener('click', closeBookForm);
+  document.querySelector('form').addEventListener('submit', closeBookForm);
 }
+
+// function troubleshooting(e) {
+//   console.log('I troubleshooted');
+//   e.preventDefault();
+// }
 
 displayAllBooks();
 addEventListeners();
