@@ -123,7 +123,21 @@ function displayAllBooks() {
 
     // append newBook
     booksContainer.appendChild(newBook);
+
+    // add Event Listener to X button
+    xBtnContainer.addEventListener('click', deleteBook);
   });
+}
+
+function deleteBook() {
+  // Remove from DOM
+  this.parentNode.parentNode.removeChild(this.parentNode);
+
+  // Remove from library array
+  let thisBookIndex = library.findIndex(
+    (book) => book.id == this.parentNode.dataset.id
+  );
+  library.splice(thisBookIndex, 1);
 }
 
 function openAddBookForm() {
@@ -168,11 +182,6 @@ function addEventListeners() {
 
   document.querySelector('form').addEventListener('submit', closeBookForm);
 }
-
-// function troubleshooting(e) {
-//   console.log('I troubleshooted');
-//   e.preventDefault();
-// }
 
 displayAllBooks();
 addEventListeners();
