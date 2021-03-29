@@ -11,6 +11,9 @@ const Boook = {
   read: 'not read yet',
 };
 
+let library = [];
+let idNumToCheck = 0;
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -21,6 +24,11 @@ function Book(title, author, pages, read) {
       this.read ? 'has been read' : 'has not been read'
     }.`;
   };
+
+  this.id = idNumToCheck.toString();
+  idNumToCheck += 1;
+
+  addBookToLibrary(this);
 }
 // to add a prototype
 Book.prototype.printTitle = function () {
@@ -38,20 +46,13 @@ const lol6 = new Book(
   5,
   true
 );
+
 console.log('lol.title = ' + lol.title);
 console.log(lol.info());
 
-let library = [];
 function addBookToLibrary(book) {
   library.push(book);
 }
-
-addBookToLibrary(lol);
-addBookToLibrary(lol2);
-addBookToLibrary(lol3);
-addBookToLibrary(lol4);
-addBookToLibrary(lol5);
-addBookToLibrary(lol6);
 
 let booksContainer = document.getElementById('books-container');
 
@@ -63,6 +64,8 @@ function displayAllBooks() {
 
     let newBook = document.createElement('div');
     newBook.classList.add('book');
+    newBook.dataset.id = aBook.id;
+    console.log(aBook.id);
 
     // X button and container
     let xBtnContainer = document.createElement('div');
@@ -139,7 +142,7 @@ function closeBookForm(e) {
   let newRead = document.getElementById('read-already').checked;
 
   let aNewBook = new Book(newTitle, newAuthor, newPages, newRead);
-  addBookToLibrary(aNewBook);
+  // addBookToLibrary(aNewBook);
 
   displayAllBooks();
   resetForm();
