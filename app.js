@@ -141,7 +141,15 @@ function closeBookForm(e) {
   addBookToLibrary(aNewBook);
 
   displayAllBooks();
+  resetForm();
   e.preventDefault();
+}
+
+function resetForm() {
+  document.getElementById('title').value = '';
+  document.getElementById('author').value = '';
+  document.getElementById('pages').value = '';
+  document.getElementById('read-already').checked = false;
 }
 
 function removeAllBooks() {
