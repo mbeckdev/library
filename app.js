@@ -126,6 +126,7 @@ function displayAllBooks() {
 function openAddBookForm() {
   // todo: take off .hidden class of overall form
   document.getElementById('add-book-form').classList.remove('hidden');
+  document.getElementById('title').focus();
 }
 
 function closeBookForm(e) {
