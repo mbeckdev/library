@@ -101,8 +101,9 @@ h2 {
 }
 
 .book {
-  background: linear-gradient(120deg, hsl(180, 100%, 28%), hsl(146, 47%, 56%));
+  /* background: linear-gradient(120deg, hsl(180, 100%, 28%), hsl(146, 47%, 56%)); */
   background: linear-gradient(120deg, hsl(146, 47%, 56%), hsl(180, 100%, 28%));
+  /* background: linear-gradient(120deg, hsl(20, 100%, 28%), hsl(146, 47%, 56%)); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,6 +115,10 @@ h2 {
   min-width: 250px;
   width: 250px;
   height: 8rem;
+}
+
+.book-not-read {
+  background: linear-gradient(120deg, hsl(20, 0%, 85%), hsl(146, 0%, 65%));
 }
 
 .btn {

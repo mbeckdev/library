@@ -73,6 +73,11 @@ function displayAllBooks() {
     newBook.classList.add('book');
     newBook.dataset.id = aBook.id;
     console.log(aBook.id);
+    if (!aBook.read) {
+      newBook.classList.add('book-not-read');
+    } else {
+      newBook.classList.remove('book-not-read');
+    }
 
     // X button and container
     let xBtnContainer = document.createElement('div');
@@ -139,7 +144,7 @@ function displayAllBooks() {
   });
 }
 
-function toggleReadStatus(e) {
+function toggleReadStatus() {
   let thisBook = this.parentNode.parentNode;
   let thisBtnContainer = this;
   let thisBookIndex = library.findIndex(
@@ -148,8 +153,10 @@ function toggleReadStatus(e) {
 
   if (thisBtnContainer.classList.contains('toggle-yes')) {
     thisBtnContainer.classList.remove('toggle-yes');
+    thisBook.classList.add('book-not-read');
   } else {
     thisBtnContainer.classList.add('toggle-yes');
+    thisBook.classList.remove('book-not-read');
   }
 
   library[thisBookIndex].toggleRead();
