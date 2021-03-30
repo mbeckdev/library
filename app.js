@@ -126,7 +126,26 @@ function displayAllBooks() {
 
     // add Event Listener to X button
     xBtnContainer.addEventListener('click', deleteBook);
+
+    // add Event Listener to read status button
+    toggleBtnContainer.addEventListener('click', toggleReadStatus);
   });
+}
+
+function toggleReadStatus(e) {
+  let thisBook = this.parentNode.parentNode;
+  let thisBtnContainer = this;
+  let thisBookIndex = library.findIndex(
+    (book) => book.id == thisBook.dataset.id
+  );
+
+  if (thisBtnContainer.classList.contains('toggle-yes')) {
+    thisBtnContainer.classList.remove('toggle-yes');
+    library[thisBookIndex].read = false;
+  } else {
+    thisBtnContainer.classList.add('toggle-yes');
+    library[thisBookIndex].read = true;
+  }
 }
 
 function deleteBook() {
