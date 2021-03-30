@@ -2,6 +2,7 @@
   --main-color: brown;
   --main-bkcolor-light: #f9f6f2;
   --main-bkcolor-dark: black;
+  /* font-family: sans-serif; */
 }
 
 * {
@@ -13,6 +14,24 @@
 body {
   background: var(--main-bkcolor-light);
   position: relative;
+  /* font-family: 'Cinzel', serif; */
+  /* font-family: 'Gentium Book Basic', sans-serif !important; */
+  /* font-family: sans-serif !important; */
+  font-family: 'Gentium Book Basic', serif;
+}
+
+button {
+  /* font-family: 'Gentium Book Basic', sans-serif; */
+  /* font: 400 monospace; */
+  /* font */
+  /* color: blue; */
+  /* font-family: sans-serif, 'Gentium Book Basic' !important; */
+  /* font-family: 'Gentium Book Basic', sans-serif; */
+  /* font-family: sans-serif; */
+  /* font-family: initial; */
+  /* font-family: inherit; */
+  font-family: 'Cinzel', serif !important;
+  /* font-size: 1.5rem; */
 }
 
 form {
@@ -24,26 +43,6 @@ form {
 
   /* hidden to start */
   /* display: none; */
-}
-.form-row button {
-  display: flex;
-  align-self: center;
-}
-.form-row label {
-  color: grey;
-}
-.form-row {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-.form-row label {
-  /* margin-top: 0.5rem; */
-  font-size: smaller;
-}
-#form-title {
-  text-align: center;
-  margin-top: 0.75rem;
 }
 
 header {
@@ -59,6 +58,12 @@ header {
 h1 {
   display: flex;
   align-self: center;
+  font-family: 'Cinzel', serif;
+  /* font-size: 1.5rem; */
+  /* font-size: medium; */
+  line-height: 1.5rem;
+
+  border: 1px solid red;
 }
 
 h2 {
@@ -79,8 +84,9 @@ h2 {
 
 #add-book {
   width: 10rem;
-  height: 2rem;
+  height: 2.5rem;
   border-radius: 1000px;
+  font-size: 1.5rem;
 }
 
 #add-book-container {
@@ -98,6 +104,11 @@ h2 {
   margin: 0 30px 30px 30px;
 
   justify-content: center;
+}
+
+#form-title {
+  text-align: center;
+  margin-top: 0.75rem;
 }
 
 .book {
@@ -167,12 +178,29 @@ h2 {
   font-family: sans-serif;
 }
 
-.checkbox-label {
-  /* margin-bottom: 0.75em; */
-}
+/* .checkbox-label { */
+/* margin-bottom: 0.75em; */
+/* } */
 
 .clickable {
   cursor: pointer;
+}
+
+.form-row button {
+  display: flex;
+  align-self: center;
+}
+.form-row label {
+  color: grey;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.form-row label {
+  /* margin-top: 0.5rem; */
+  font-size: smaller;
 }
 
 .hidden {
