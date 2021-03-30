@@ -24,6 +24,13 @@ function Book(title, author, pages, read) {
       this.read ? 'has been read' : 'has not been read'
     }.`;
   };
+  this.toggleRead = function () {
+    if (this.read) {
+      this.read = false;
+    } else {
+      this.read = true;
+    }
+  };
 
   this.id = idNumToCheck.toString();
   idNumToCheck += 1;
@@ -141,11 +148,12 @@ function toggleReadStatus(e) {
 
   if (thisBtnContainer.classList.contains('toggle-yes')) {
     thisBtnContainer.classList.remove('toggle-yes');
-    library[thisBookIndex].read = false;
+    // library[thisBookIndex].read = false;
   } else {
     thisBtnContainer.classList.add('toggle-yes');
-    library[thisBookIndex].read = true;
+    // library[thisBookIndex].read = true;
   }
+  library[thisBookIndex].toggleRead();
 }
 
 function deleteBook() {
