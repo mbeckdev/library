@@ -231,6 +231,7 @@ h2 {
 
 .hamburger-container {
   align-self: center;
+  width: 90px;
 }
 
 .hidden {
