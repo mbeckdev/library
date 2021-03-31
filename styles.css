@@ -267,7 +267,7 @@ h2 {
   background-color: hsl(120, 0%, 30%);
   display: flex;
   align-items: center;
-  margin-left: 5px;
+  margin-left: 10px;
 
   /* change this to make it look like a toggle button */
   justify-content: flex-start;
