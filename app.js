@@ -185,6 +185,16 @@ function openAddBookForm() {
 }
 
 function closeBookForm(e) {
+  e.preventDefault();
+  if (document.getElementById('add-book-form').title.value.length < 1) {
+    alert('Please enter a title');
+    return false;
+  }
+  if (document.getElementById('add-book-form').author.value.length < 1) {
+    alert('Please enter an author');
+    return false;
+  }
+
   document.getElementById('add-book-form').classList.add('hidden');
 
   let newTitle = document.getElementById('title').value;
@@ -198,7 +208,6 @@ function closeBookForm(e) {
 
   displayAllBooks();
   resetForm();
-  e.preventDefault();
 }
 
 function resetForm() {
