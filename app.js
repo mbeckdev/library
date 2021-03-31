@@ -42,14 +42,19 @@ Book.prototype.printTitle = function () {
   console.log(this.title);
 };
 
-const lol = new Book('dary', 'me', 5, false);
-const lol2 = new Book('Moby Dick', 'me', 5, true);
+const lol = new Book(
+  'How To Use An Apple Slicer',
+  'Johnny Appleseed',
+  527,
+  false
+);
+const lol2 = new Book('Moby Dick', 'Jar Jar Binks', 5, true);
 const lol3 = new Book('Harry Potter', 'J.R. Tolkien', 5, false);
 const lol4 = new Book('Atomic Habits', 'James Clear', 123, false);
 const lol5 = new Book('How to Train Cats', 'my cousin', 5, true);
 const lol6 = new Book(
-  'Mofffffffffffffffffffffffffff Dick',
-  'Herman Melville',
+  'A Really Long Book Title With Many Characters',
+  'Herman Melville, The Wise',
   5,
   true
 );
