@@ -41,7 +41,15 @@ form {
   top: 80px;
   background-color: hsla(120, 0%, 90%, 1);
   background: radial-gradient(hsl(120, 0%, 98%), hsl(120, 0%, 90%));
-  width: 100%;
+  /* width: 100%; */
+  width: 300px;
+  /* margin: 0 auto; */
+  /* left: 40%; */
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+
   padding: 10px;
 
   box-shadow: 0 0 4px black;
