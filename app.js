@@ -59,11 +59,28 @@ const lol6 = new Book(
   true
 );
 
-console.log('lol.title = ' + lol.title);
-console.log(lol.info());
+// console.log('lol.title = ' + lol.title);
+// console.log(lol.info());
+
+if (!localStorage.getItem('library')) {
+  populateLocalStorage();
+} else {
+  // set things from local storage
+  getLocalStorage();
+}
 
 function addBookToLibrary(book) {
   library.push(book);
+  populateLocalStorage();
+}
+
+function populateLocalStorage() {
+  localStorage.setItem('library', library);
+  getLocalStorage();
+}
+
+function getLocalStorage() {
+  library = localStorage.getItem('library');
 }
 
 let booksContainer = document.getElementById('books-container');
@@ -176,6 +193,7 @@ function deleteBook() {
     (book) => book.id == this.parentNode.dataset.id
   );
   library.splice(thisBookIndex, 1);
+  populateLocalStorage();
 }
 
 function openAddBookForm() {
@@ -186,14 +204,6 @@ function openAddBookForm() {
 
 function closeBookForm(e) {
   e.preventDefault();
-  if (document.getElementById('add-book-form').title.value.length < 1) {
-    alert('Please enter a title');
-    return false;
-  }
-  if (document.getElementById('add-book-form').author.value.length < 1) {
-    alert('Please enter an author');
-    return false;
-  }
 
   document.getElementById('add-book-form').classList.add('hidden');
 
