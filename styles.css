@@ -1,7 +1,14 @@
 :root {
-  --main-color: brown;
-  --main-bkcolor-light: #f9f6f2;
+  --main-color: #000000;
+  /* --main-bkcolor-light: #f9f6f2; */
+  --main-bkcolor: #5a555a;
+  /* --main-bkcolor-dark: black; */
   --main-bkcolor-dark: black;
+  --hamburger-color: black;
+  --main-shadow-color: black;
+  --button-color: orange;
+  --highlight-color: #f9f6f2;
+  /* --highlight-color: #ffffff; */
   /* font-family: sans-serif; */
 }
 
@@ -12,7 +19,7 @@
 }
 
 body {
-  background: var(--main-bkcolor-light);
+  background: var(--main-bkcolor);
   position: relative;
   /* font-family: 'Cinzel', serif; */
   /* font-family: 'Gentium Book Basic', sans-serif !important; */
@@ -20,6 +27,7 @@ body {
   font-family: 'Gentium Book Basic', serif;
 
   min-width: 250px;
+  color: var(--main-color);
 }
 
 button {
@@ -43,8 +51,6 @@ form {
   background: radial-gradient(hsl(120, 0%, 98%), hsl(120, 0%, 90%));
   /* width: 100%; */
   width: 300px;
-  /* margin: 0 auto; */
-  /* left: 40%; */
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -52,7 +58,7 @@ form {
 
   padding: 10px;
 
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 4px var(--main-shadow-color);
 
   /* hidden to start */
   /* display: none; */
@@ -65,7 +71,7 @@ header {
   background-color: grey;
   height: 4rem;
 
-  box-shadow: 0 1px 4px black;
+  box-shadow: 0 1px 4px var(--main-shadow-color);
 }
 
 h1 {
@@ -76,6 +82,7 @@ h1 {
   /* font-size: medium; */
   line-height: 1.5rem;
   /* border: 1px solid red; */
+  text-shadow: 0 0 18px var(--highlight-color);
 }
 #h1-container {
   /* border: 1px solid yellow; */
@@ -140,7 +147,7 @@ h2 {
 
   margin: 3px;
   border-radius: 5px;
-  box-shadow: 2px 2px 6px black;
+  box-shadow: 2px 2px 6px var(--main-shadow-color);
 
   min-width: 250px;
   width: 250px;
@@ -164,11 +171,11 @@ h2 {
 
   width: 5rem;
   height: 1.5rem;
-  background: orange;
+  background: var(--button-color);
   border-radius: 8px;
 
   margin: 2px;
-  box-shadow: 1px 1px 2px black;
+  box-shadow: 1px 1px 2px var(--main-shadow-color);
 }
 
 .btn-x {
@@ -233,7 +240,7 @@ h2 {
 .line {
   width: 28px;
   height: 6px;
-  background-color: var(--main-bkcolor-dark);
+  background-color: var(--hamburger-color);
   margin: 3px 2px;
 }
 
@@ -271,7 +278,7 @@ h2 {
   width: 14px;
   border-radius: 50px;
   background-color: white;
-  box-shadow: 0 0 2px black;
+  box-shadow: 0 0 2px var(--main-shadow-color);
 
   margin: 0px;
 }
