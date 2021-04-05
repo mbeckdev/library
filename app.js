@@ -5,14 +5,14 @@
 // at the end of this lesson. Your book objects should have the
 // book’s title, author, the number of pages, and whether or not you have read the book
 const Boook = {
+  //example of a book, this won't be used.
   book: 'pi',
   author: 'dur dur',
   pages: 3,
-  read: 'not read yet',
+  read: false,
 };
 
 let library = [];
-let library2 = [];
 let idNumToCheck = 0;
 
 function BookFunctions() {
@@ -23,13 +23,6 @@ function BookFunctions() {
       this.read ? 'has been read' : 'has not been read'
     }.`;
   };
-  // this.toggleRead = function () {
-  //   if (this.read) {
-  //     this.read = false;
-  //   } else {
-  //     this.read = true;
-  //   }
-  // };
 }
 
 function Book(title, author, pages, read) {
@@ -37,12 +30,11 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-
   this.id = idNumToCheck.toString();
   idNumToCheck += 1;
-
   addBookToLibrary(this);
 }
+
 // to add a prototype
 Book.prototype.printTitle = function () {
   console.log(this.title);
@@ -74,9 +66,6 @@ const lol6 = new Book(
   true
 );
 
-// console.log('lol.title = ' + lol.title);
-// console.log(lol.info());
-
 if (!localStorage.getItem('library')) {
   populateLocalStorage();
 } else {
@@ -98,10 +87,9 @@ function populateLocalStorage() {
 function getLocalStorage() {
   // library = localStorage.getItem('library');
   library = [];
-
   let tempLibrary = JSON.parse(localStorage.getItem('library'));
-  // putFunctionsBackOnLibrary
 
+  // putFunctionsBackOnLibrary  -- it happens inside of new Book
   tempLibrary.forEach((eaBook) => {
     let thisBook = new Book(
       eaBook.title,
@@ -109,11 +97,7 @@ function getLocalStorage() {
       eaBook.pages,
       eaBook.read
     );
-    // thisBook.id = eaBook.id;
-    // library.push(thisBook);
-    // library2.push(thisBook);
   });
-  // console.log(library2);
 
   // Book.prototype = Object.create(BookFunctions.prototype);
 }
@@ -124,8 +108,6 @@ function displayAllBooks() {
   removeAllBooks();
 
   library.forEach((aBook) => {
-    // console.log(aBook.info());
-
     let newBook = document.createElement('div');
     newBook.classList.add('book');
     newBook.dataset.id = aBook.id;
@@ -234,24 +216,18 @@ function deleteBook() {
 }
 
 function openAddBookForm() {
-  // todo: take off .hidden class of overall form
   document.getElementById('add-book-form').classList.remove('hidden');
   document.getElementById('title').focus();
 }
 
 function closeBookForm(e) {
   e.preventDefault();
-
   document.getElementById('add-book-form').classList.add('hidden');
-
   let newTitle = document.getElementById('title').value;
-
   let newAuthor = document.getElementById('author').value;
   let newPages = document.getElementById('pages').value;
   let newRead = document.getElementById('read-already').checked;
-
   let aNewBook = new Book(newTitle, newAuthor, newPages, newRead);
-  // addBookToLibrary(aNewBook);
   populateLocalStorage();
   displayAllBooks();
   resetForm();
@@ -273,7 +249,6 @@ function addEventListeners() {
   document
     .getElementById('add-book')
     .addEventListener('click', openAddBookForm);
-
   document.querySelector('form').addEventListener('submit', closeBookForm);
 }
 
