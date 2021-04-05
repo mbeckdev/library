@@ -12,25 +12,31 @@ const Boook = {
 };
 
 let library = [];
+let library2 = [];
 let idNumToCheck = 0;
+
+function BookFunctions() {
+  //put what was in Book into here and then prototype this onto Book
+  // so that maybe we can get around when JSON gets rid of functions
+  this.info = function () {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${
+      this.read ? 'has been read' : 'has not been read'
+    }.`;
+  };
+  // this.toggleRead = function () {
+  //   if (this.read) {
+  //     this.read = false;
+  //   } else {
+  //     this.read = true;
+  //   }
+  // };
+}
 
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${
-      this.read ? 'has been read' : 'has not been read'
-    }.`;
-  };
-  this.toggleRead = function () {
-    if (this.read) {
-      this.read = false;
-    } else {
-      this.read = true;
-    }
-  };
 
   this.id = idNumToCheck.toString();
   idNumToCheck += 1;
@@ -41,6 +47,15 @@ function Book(title, author, pages, read) {
 Book.prototype.printTitle = function () {
   console.log(this.title);
 };
+Book.prototype.toggleRead = function () {
+  if (this.read) {
+    this.read = false;
+  } else {
+    this.read = true;
+  }
+};
+
+// Book.prototype = Object.create(BookFunctions.prototype);
 
 const lol = new Book(
   'How To Use An Apple Slicer',
@@ -71,16 +86,36 @@ if (!localStorage.getItem('library')) {
 
 function addBookToLibrary(book) {
   library.push(book);
-  populateLocalStorage();
+  // populateLocalStorage();
 }
 
 function populateLocalStorage() {
-  localStorage.setItem('library', library);
-  getLocalStorage();
+  // localStorage.setItem('library', library);
+  localStorage.setItem('library', JSON.stringify(library));
+  // getLocalStorage();
 }
 
 function getLocalStorage() {
-  library = localStorage.getItem('library');
+  // library = localStorage.getItem('library');
+  library = [];
+
+  let tempLibrary = JSON.parse(localStorage.getItem('library'));
+  // putFunctionsBackOnLibrary
+
+  tempLibrary.forEach((eaBook) => {
+    let thisBook = new Book(
+      eaBook.title,
+      eaBook.author,
+      eaBook.pages,
+      eaBook.read
+    );
+    // thisBook.id = eaBook.id;
+    // library.push(thisBook);
+    // library2.push(thisBook);
+  });
+  // console.log(library2);
+
+  // Book.prototype = Object.create(BookFunctions.prototype);
 }
 
 let booksContainer = document.getElementById('books-container');
@@ -89,7 +124,7 @@ function displayAllBooks() {
   removeAllBooks();
 
   library.forEach((aBook) => {
-    console.log(aBook.info());
+    // console.log(aBook.info());
 
     let newBook = document.createElement('div');
     newBook.classList.add('book');
@@ -181,7 +216,9 @@ function toggleReadStatus() {
     thisBook.classList.remove('book-not-read');
   }
 
+  // Book.prototype = Object.create(BookFunctions.prototype);
   library[thisBookIndex].toggleRead();
+  populateLocalStorage();
 }
 
 function deleteBook() {
@@ -215,7 +252,7 @@ function closeBookForm(e) {
 
   let aNewBook = new Book(newTitle, newAuthor, newPages, newRead);
   // addBookToLibrary(aNewBook);
-
+  populateLocalStorage();
   displayAllBooks();
   resetForm();
 }
